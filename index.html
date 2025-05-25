@@ -7,8 +7,8 @@
   <style>
     body { font-family: sans-serif; margin: 0; padding: 0; }
     header, footer { background: #003366; color: white; text-align: center; padding: 1em; }
-    header .logo-title { display: flex; align-items: center; justify-content: center; gap: 1em; }
-    header img { block-size: 60px; }
+    header .logo-title { display: flex; align-items: stretch; justify-content: center; gap: 1em; }
+    header img { block-size: 100%; max-block-size: 120px; object-fit: contain; background: white; padding: 0.5em; border-radius: 8px; }
     main { padding: 2em; }
     .card-container { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; }
     .card { border: 1px solid #ccc; padding: 1em; inline-size: 300px; border-radius: 8px; }
@@ -41,6 +41,10 @@
     .excursions { margin-block-start: 2em; }
     .excursions h3 { color: #003366; }
     .excursions ul { list-style-type: disc; padding-inline-start: 20px; }
+    form { max-inline-size: 600px; margin: 2em auto; padding: 1em; border: 1px solid #ccc; border-radius: 8px; }
+    form label { display: block; margin-block-end: 0.5em; }
+    form input, form select { inline-size: 100%; padding: 0.5em; margin-block-start: 0.25em; margin-block-end: 1em; }
+    form button { background-color: #007acc; color: white; padding: 0.5em 1em; border: none; border-radius: 5px; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -87,7 +91,24 @@
         </ul>
 
         <h3>Acquisto Biglietti Online</h3>
-        <p><a href="#" class="button">Prenota ora</a></p>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <label>Nome:
+            <input type="text" name="nome" required>
+          </label>
+          <label>Email:
+            <input type="email" name="email" required>
+          </label>
+          <label>Data:
+            <input type="date" name="data" required>
+          </label>
+          <label>Escursione:
+            <select name="escursione">
+              <option value="Punta Sabbioni - San Marco">Punta Sabbioni - San Marco</option>
+              <option value="Giro delle Isole">Giro delle Isole</option>
+            </select>
+          </label>
+          <button type="submit">Invia Prenotazione</button>
+        </form>
       </div>
     </section>
 
