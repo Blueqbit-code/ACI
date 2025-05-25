@@ -38,6 +38,23 @@
       visibility: visible;
       opacity: 1;
     }
+    .lang-switcher {
+  position: absolute;
+  inset-block-start: 1em;
+  inset-inline-end: 1em;
+  background: rgba(255,255,255,0.9);
+  padding: 0.5em;
+  border-radius: 10px;
+}
+.lang-switcher img {
+  inline-size: 24px;
+  block-size: 16px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
     .excursions { margin-block-start: 2em; }
     .excursions h3 { color: #003366; }
     .excursions ul { list-style-type: disc; padding-inline-start: 20px; }
@@ -50,7 +67,41 @@
   </style>
 </head>
 <body>
+  <script>
+  const userLang = navigator.language || navigator.userLanguage;
+  const langMap = {
+    "it": "index.html",
+    "en": "index-en-full.html",
+    "de": "index-de-full.html",
+    "fr": "index-fr-full.html",
+    "es": "index-es-full.html",
+    "zh": "index-zh-full.html",
+    "ja": "index-ja-full.html",
+    "ru": "index-ru-full.html",
+    "he": "index-he-full.html",
+    "ar": "index-ar-full.html"
+  };
+
+  const langCode = userLang.split('-')[0]; // "en-US" → "en"
+  if (langMap[langCode] && !window.location.pathname.includes(langMap[langCode])) {
+    window.location.href = langMap[langCode];
+  }
+</script>
+
   <header>
+    <div class="lang-switcher">
+  <a href="index.html"><img src="flags/it.png" alt="Italiano" title="Italiano"></a>
+  <a href="index-en-full.html"><img src="flags/en.png" alt="English" title="English"></a>
+  <a href="index-de-full.html"><img src="flags/de.png" alt="Deutsch" title="Deutsch"></a>
+  <a href="index-fr-full.html"><img src="flags/fr.png" alt="Français" title="Français"></a>
+  <a href="index-es-full.html"><img src="flags/es.png" alt="Español" title="Español"></a>
+  <a href="index-zh-full.html"><img src="flags/zh.png" alt="中文" title="中文"></a>
+  <a href="index-ja-full.html"><img src="flags/ja.png" alt="日本語" title="日本語"></a>
+  <a href="index-ru-full.html"><img src="flags/ru.png" alt="Русский" title="Русский"></a>
+  <a href="index-he-full.html"><img src="flags/he.png" alt="עברית" title="עברית"></a>
+  <a href="index-ar-full.html"><img src="flags/ar.png" alt="العربية" title="العربية"></a>
+</div>
+
     <div class="logo-title">
       <img src="img/logo.jpg" alt="Logo ACI Venezia Tourist">
       <div>
