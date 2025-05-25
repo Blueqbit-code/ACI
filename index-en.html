@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACI Venice Tourist</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    header, footer { background: #003366; color: white; text-align: center; padding: 1em; }
+    header .logo-title { display: flex; align-items: stretch; justify-content: center; gap: 1em; }
+    header img { block-size: 100%; max-block-size: 120px; object-fit: contain; background: white; padding: 0.5em; border-radius: 8px; }
+    main { padding: 2em; }
+    .card-container { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; }
+    .card { border: 1px solid #ccc; padding: 1em; inline-size: 300px; border-radius: 8px; }
+    .button { background-color: #007acc; color: white; padding: 0.5em 1em; border: none; border-radius: 5px; text-decoration: none; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; padding: 1em; }
+    .gallery img { inline-size: 300px; border-radius: 6px; cursor: pointer; transition: transform 0.2s ease-in-out; }
+    .gallery img:hover { transform: scale(1.05); }
+    .lightbox {
+      position: fixed;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      inline-size: 100vw;
+      block-size: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s ease;
+    }
+    .lightbox img {
+      max-inline-size: 90%;
+      max-block-size: 90%;
+    }
+    .lightbox.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .excursions { margin-block-start: 2em; }
+    .excursions h3 { color: #003366; }
+    .excursions ul { list-style-type: disc; padding-inline-start: 20px; }
+    form { max-inline-size: 600px; margin: 2em auto; padding: 1em; border: 1px solid #ccc; border-radius: 8px; }
+    form label { display: block; margin-block-end: 0.5em; }
+    form input, form select { inline-size: 100%; padding: 0.5em; margin-block-start: 0.25em; margin-block-end: 1em; }
+    form button { background-color: #007acc; color: white; padding: 0.5em 1em; border: none; border-radius: 5px; cursor: pointer; }
+    .map-section { text-align: center; margin-block-start: 3em; }
+    .map-section img { inline-size: 100%; max-inline-size: 800px; border-radius: 10px; margin-block-end: 1em; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="img/logo.jpg" alt="ACI Venice Tourist Logo">
+      <div>
+        <h1>ACI Venice Tourist</h1>
+        <p>Boat tour experiences in the stunning Venetian Lagoon</p>
+      </div>
+    </div>
+    <a href="#escursioni" class="button">Discover the Excursions</a>
+  </header>
+
+  <main>
+    <section class="card-container">
+      <div class="card">
+        <h2>Island Tours</h2>
+        <p>Visit Murano, Burano, and Torcello with our luxury motorboats.</p>
+      </div>
+      <div class="card">
+        <h2>Custom Services</h2>
+        <p>We organize private events, corporate charters, and exclusive rentals.</p>
+      </div>
+      <div class="card">
+        <h2>Contact Us</h2>
+        <p>Call +39 041 5301096 or email info@acivenice.it for info and bookings.</p>
+      </div>
+    </section>
+
+    <section class="excursions" id="escursioni">
+      <h2 style="text-align:center;">Our Excursions</h2>
+      <div style="max-inline-size:600px; margin:0 auto;">
+        <h3>Line: Punta Sabbioni - San Marco</h3>
+        <p>Direct connection between the lagoon and the heart of Venice. Comfortable, fast and scenic.</p>
+
+        <h3>Island Tour</h3>
+        <ul>
+          <li>Murano – Island of glass masters</li>
+          <li>Burano – Colorful houses and lace</li>
+          <li>Torcello – Ancient basilicas and nature</li>
+          <li>San Marco – The cultural heart of the city</li>
+          <li>Punta Sabbioni – Return to departure</li>
+        </ul>
+
+        <h3>Buy Tickets Online</h3>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <label>Name:
+            <input type="text" name="name" required>
+          </label>
+          <label>Email:
+            <input type="email" name="email" required>
+          </label>
+          <label>Date:
+            <input type="date" name="date" required>
+          </label>
+          <label>Excursion:
+            <select name="excursion">
+              <option value="Punta Sabbioni - San Marco">Punta Sabbioni - San Marco</option>
+              <option value="Island Tour">Island Tour</option>
+            </select>
+          </label>
+          <button type="submit">Submit Booking</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <h2>Map of the Venetian Lagoon</h2>
+      <a href="https://upload.wikimedia.org/wikipedia/commons/a/a7/Carta_idrografica_della_laguna_veneta_-_1975.jpg" target="_blank">
+        <img src="img/1975.jpg" alt="Map of the Venetian Lagoon">
+      </a>
+      <p><a href="https://www.rendez-vous-fantasia.com/wp-content/uploads/2019/09/Mappa-Laguna-di-Venezia-WEB.pdf" target="_blank" class="button">Download the map</a></p>
+    </section>
+
+    <section>
+      <h2 style="text-align:center;">Photo Gallery of the Islands</h2>
+      <div class="gallery">
+        <img src="img/ACILep.jpg" alt="ACI Lepanto">
+        <img src="img/Burano1.jpg" alt="Burano">
+        <img src="img/VistaVe.jpg" alt="Venetian View">
+        <img src="img/Sunset.jpg" alt="Sunset">
+        <img src="img/Plancia.jpg" alt="Bridge">
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+      <img src="" alt="Enlarged Image">
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 ACI Venice Tourist srl - VAT and legal info - Powered by Arrigo</p>
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('show');
+      lightboxImg.src = '';
+    });
+  </script>
+</body>
+</html>

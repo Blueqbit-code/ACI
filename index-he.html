@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACI תיירות ונציה</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; direction: rtl; }
+    header, footer { background: #003366; color: white; text-align: center; padding: 1em; }
+    header .logo-title { display: flex; align-items: stretch; justify-content: center; gap: 1em; flex-direction: row-reverse; }
+    header img { block-size: 100%; max-block-size: 120px; object-fit: contain; background: white; padding: 0.5em; border-radius: 8px; }
+    main { padding: 2em; }
+    .card-container { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; }
+    .card { border: 1px solid #ccc; padding: 1em; inline-size: 300px; border-radius: 8px; }
+    .button { background-color: #007acc; color: white; padding: 0.5em 1em; border: none; border-radius: 5px; text-decoration: none; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; padding: 1em; }
+    .gallery img { inline-size: 300px; border-radius: 6px; cursor: pointer; transition: transform 0.2s ease-in-out; }
+    .gallery img:hover { transform: scale(1.05); }
+    .lightbox {
+      position: fixed;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      inline-size: 100vw;
+      block-size: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s ease;
+    }
+    .lightbox img {
+      max-inline-size: 90%;
+      max-block-size: 90%;
+    }
+    .lightbox.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .excursions { margin-block-start: 2em; }
+    .excursions h3 { color: #003366; }
+    .excursions ul { list-style-type: disc; padding-inline-start: 20px; }
+    form { max-inline-size: 600px; margin: 2em auto; padding: 1em; border: 1px solid #ccc; border-radius: 8px; }
+    form label { display: block; margin-block-end: 0.5em; }
+    form input, form select { inline-size: 100%; padding: 0.5em; margin-block-start: 0.25em; margin-block-end: 1em; }
+    form button { background-color: #007acc; color: white; padding: 0.5em 1em; border: none; border-radius: 5px; cursor: pointer; }
+    .map-section { text-align: center; margin-block-start: 3em; }
+    .map-section img { inline-size: 100%; max-inline-size: 800px; border-radius: 10px; margin-block-end: 1em; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="img/logo.jpg" alt="לוגו ACI תיירות ונציה">
+      <div>
+        <h1>ACI תיירות ונציה</h1>
+        <p>חוויה תיירותית בסירה בלגונה של ונציה</p>
+      </div>
+    </div>
+    <a href="#escursioni" class="button">גלה את הטיולים</a>
+  </header>
+
+  <main>
+    <section class="card-container">
+      <div class="card">
+        <h2>סיורי איים</h2>
+        <p>בקרו במורנו, בורנו וטורצ'לו עם סירות התיירים שלנו.</p>
+      </div>
+      <div class="card">
+        <h2>שירותים מותאמים</h2>
+        <p>אנו מארגנים אירועים פרטיים, סיורים עסקיים והשכרות בלעדיות.</p>
+      </div>
+      <div class="card">
+        <h2>צור קשר</h2>
+        <p>התקשר ל-+39 041 5301096 או כתוב לכתובת info@acivenice.it לפרטים והזמנות.</p>
+      </div>
+    </section>
+
+    <section class="excursions" id="escursioni">
+      <h2 style="text-align:center;">הטיולים שלנו</h2>
+      <div style="max-inline-size:600px; margin:0 auto;">
+        <h3>קו: פונטה סאביוני - סן מרקו</h3>
+        <p>קו ישיר בין הלגונה ולב ונציה. נוח, מהיר ונוף מרהיב.</p>
+
+        <h3>סיור איים</h3>
+        <ul>
+          <li>מורנו – אי אומני הזכוכית</li>
+          <li>בורנו – בתים צבעוניים ותחרה</li>
+          <li>טורצ'לו – בזיליקות עתיקות וטבע</li>
+          <li>סן מרקו – הלב התרבותי של העיר</li>
+          <li>פונטה סאביוני – חזרה לנקודת ההתחלה</li>
+        </ul>
+
+        <h3>רכישת כרטיסים אונליין</h3>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <label>שם:
+            <input type="text" name="name" required>
+          </label>
+          <label>אימייל:
+            <input type="email" name="email" required>
+          </label>
+          <label>תאריך:
+            <input type="date" name="date" required>
+          </label>
+          <label>טיול:
+            <select name="excursion">
+              <option value="קו פונטה סאביוני - סן מרקו">קו פונטה סאביוני - סן מרקו</option>
+              <option value="סיור איים">סיור איים</option>
+            </select>
+          </label>
+          <button type="submit">שלח הזמנה</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <h2>מפת הלגונה של ונציה</h2>
+      <a href="https://upload.wikimedia.org/wikipedia/commons/a/a7/Carta_idrografica_della_laguna_veneta_-_1975.jpg" target="_blank">
+        <img src="img/1975.jpg" alt="מפת הלגונה של ונציה">
+      </a>
+      <p><a href="https://www.rendez-vous-fantasia.com/wp-content/uploads/2019/09/Mappa-Laguna-di-Venezia-WEB.pdf" target="_blank" class="button">הורד את המפה</a></p>
+    </section>
+
+    <section>
+      <h2 style="text-align:center;">גלריית תמונות של האיים</h2>
+      <div class="gallery">
+        <img src="img/ACILep.jpg" alt="ספינת ACI">
+        <img src="img/Burano1.jpg" alt="בורנו">
+        <img src="img/VistaVe.jpg" alt="נוף ונציה">
+        <img src="img/Sunset.jpg" alt="שקיעה">
+        <img src="img/Plancia.jpg" alt="גשר הפיקוד">
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+      <img src="" alt="תמונה מוגדלת">
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 ACI תיירות ונציה srl - מידע משפטי - Powered by Arrigo</p>
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('show');
+      lightboxImg.src = '';
+    });
+  </script>
+</body>
+</html>
