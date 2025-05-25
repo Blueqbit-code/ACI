@@ -9,7 +9,7 @@
     header, footer { background: #003366; color: white; text-align: center; padding: 1em; }
     main { padding: 2em; }
     .card-container { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; }
-    .card { border: 1px solid #ccc; padding: 1em; width: 300px; border-radius: 8px; }
+    .card { border: 1px solid #ccc; padding: 1em; inline-size: 300px; border-radius: 8px; }
     .button { background-color: #007acc; color: white; padding: 0.5em 1em; border: none; border-radius: 5px; text-decoration: none; }
   </style>
 </head>
@@ -21,6 +21,14 @@
   </header>
 
   <main>
+    <section>
+  <h2>Galleria Fotografica</h2>
+  <div style="display:flex; flex-wrap:wrap; gap:1em;">
+    <img src="img/Europa4.jpg" alt="Motonave ACI" width="300">
+    <img src="img/Control.jpg" alt="Tour isole" width="300">
+  </div>
+</section>
+
     <section class="card-container">
       <div class="card">
         <h2>Tour delle Isole</h2>
