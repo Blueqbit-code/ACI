@@ -72,27 +72,6 @@
   </style>
 </head>
 <body>
-  <script>
-  const userLang = navigator.language || navigator.userLanguage;
-  const langMap = {
-    "it": "index.html",
-    "en": "index-en.html",
-    "de": "index-de.html",
-    "fr": "index-fr.html",
-    "es": "index-es.html",
-    "zh": "index-zh.html",
-    "ja": "index-ja.html",
-    "ru": "index-ru.html",
-    "he": "index-he.html",
-    "ar": "index-ar.html"
-  };
-
-  const langCode = userLang.split('-')[0]; // "en-US" → "en"
-  if (langMap[langCode] && !window.location.pathname.includes(langMap[langCode])) {
-    window.location.href = langMap[langCode];
-  }
-</script>
-
   <header>
     <div class="lang-switcher">
   <a href="index.html"><img src="flags/it.png" alt="Italiano" title="Italiano"></a>
