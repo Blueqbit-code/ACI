@@ -11,6 +11,31 @@
     .card-container { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; }
     .card { border: 1px solid #ccc; padding: 1em; inline-size: 300px; border-radius: 8px; }
     .button { background-color: #007acc; color: white; padding: 0.5em 1em; border: none; border-radius: 5px; text-decoration: none; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; padding: 1em; }
+    .gallery img { inline-size: 300px; border-radius: 6px; cursor: pointer; transition: transform 0.2s ease-in-out; }
+    .gallery img:hover { transform: scale(1.05); }
+    .lightbox {
+      position: fixed;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      inline-size: 100vw;
+      block-size: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s ease;
+    }
+    .lightbox img {
+      max-inline-size: 90%;
+      max-block-size: 90%;
+    }
+    .lightbox.show {
+      visibility: visible;
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -21,14 +46,6 @@
   </header>
 
   <main>
-    <section>
-  <h2>Galleria Fotografica</h2>
-  <div style="display:flex; flex-wrap:wrap; gap:1em;">
-    <img src="img/Europa4.jpg" alt="Motonave ACI" width="300">
-    <img src="img/Control.jpg" alt="Tour isole" width="300">
-  </div>
-</section>
-
     <section class="card-container">
       <div class="card">
         <h2>Tour delle Isole</h2>
@@ -43,10 +60,40 @@
         <p>Chiama il +39 041 5301096 o scrivi a info@acivenice.it per info e prenotazioni.</p>
       </div>
     </section>
+
+    <section>
+      <h2 style="text-align:center;">Galleria Fotografica</h2>
+      <div class="gallery">
+        <img src="img/ACILep.jpg" alt="ACI Lepanto">
+        <img src="img/Burano1.jpg" alt="Burano">
+        <img src="img/VistaVe.jpg" alt="Vista Venezia">
+        <img src="img/Sunset.jpg" alt="Tramonto">
+        <img src="img/Plancia.jpg" alt="Plancia">
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+      <img src="" alt="Immagine ingrandita">
+    </div>
   </main>
 
   <footer>
     <p>© 2025 ACI Venezia Tourist srl - P.IVA e dati legali - Powered by Arrigo</p>
   </footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('show');
+      lightboxImg.src = '';
+    });
+  </script>
 </body>
 </html>
